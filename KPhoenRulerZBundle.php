@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace KPhoen\RulerZBundle;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
 use KPhoen\RulerZBundle\DependencyInjection\Compiler;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class KPhoenRulerZBundle extends Bundle
 {
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         parent::build($container);
 
@@ -22,7 +22,7 @@ class KPhoenRulerZBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function getContainerExtension()
+    public function getContainerExtension(): ?ExtensionInterface
     {
         return new DependencyInjection\KPhoenRulerZExtension();
     }
